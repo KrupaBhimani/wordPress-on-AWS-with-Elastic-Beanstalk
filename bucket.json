@@ -1,0 +1,21 @@
+{
+  "Version": "2012-10-17", //This is versioning internal to AWS.
+  "Statement": [
+    {
+      "Effect": "Allow",  //We want to allow the following actions on the resource.
+      "Action": [
+        "s3:DeleteObject",
+        "s3:GetObject",
+        "s3:GetObjectAcl",
+        "s3:ListBucket",
+        "s3:PutObject",
+        "s3:PutObjectAcl",
+        "s3:GetBucketLocation"
+      ],                          //Allow the user to get, put, and delete files in our bucket. 
+      "Resource": [
+        "arn:aws:s3:::YOUR-BUCKET-NAME",   //Allow the actions on the bucket itself.
+        "arn:aws:s3:::YOUR-BUCKET-NAME/*"   //Allow the actions on all files within the bucket.
+      ]
+    }
+  ]
+}
